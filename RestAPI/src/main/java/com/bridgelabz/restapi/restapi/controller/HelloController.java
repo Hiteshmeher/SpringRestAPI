@@ -24,8 +24,14 @@ public class HelloController {
     }
 
     //get request mapping with request body
-    @PostMapping("/hello")
+    @PostMapping("/hello/post")
     public String getFirstLastName(@RequestBody Person person){
         return "Hello "+ person.getFirstName() +" "+ person.getLastName() +" from Bridgelabz";
+    }
+
+    //put request mapping with path variable and query parameter
+    @PutMapping("/hello/put/{firstName}")
+    public String sayHelloWithPut(@RequestParam String lastName, @PathVariable String firstName){
+        return "Hello "+ firstName +" "+ lastName +" from Bridgelabz";
     }
 }
